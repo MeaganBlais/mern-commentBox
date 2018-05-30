@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CommentForm from './CommentForm';
 
 class CommentBox extends Component {
   constructor() {
@@ -6,8 +7,13 @@ class CommentBox extends Component {
   }
   render() {
     return (
-      <div>
-        Hello MERN!
+      <div className="container">
+        <div className="comment">
+          <h2>Comments:</h2>
+        </div>
+        <div className="form">
+          <CommentForm />
+        </div>
       </div>
     )
   }
