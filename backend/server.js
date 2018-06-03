@@ -18,7 +18,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // configure API to use bodyParser and look for JSON data in the request body
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
@@ -39,9 +39,10 @@ router.post('/comments', (req, res) => {
   // body parser package provides access to req.body
   const { author, text } = req.body;
   if (!author || !text) {
+    // throw an error to check on front end
     return res.json({
       success: false,
-      error: 'You must provide an author and comment'
+      error: 'You must provide an author and text'
     });
   }
   comment.author = author;
