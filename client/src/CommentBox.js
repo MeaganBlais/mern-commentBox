@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import CommentList from './CommentList';
 import CommentForm from './CommentForm';
-import CommentList from './CommentList'
 // import DATA from './data';
 
 class CommentBox extends Component {
@@ -36,17 +36,18 @@ class CommentBox extends Component {
 
   submitComment = (e) => {
     e.preventDefault();
-    const { author, text } = this.state;
-    if (!author || !text) return;
-    fetch('/api/comments', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ author, text }),
-    }).then(res => res.json()).then((res) => {
-      if (!res.success) this.setState({error: res.error.message || res.error });
-      else this.setState({ author: '', text: '', error: null });
-      console.log(this.state)
-    });
+    console.log(`${this.state.author} said "${this.state.text}"`)
+    // const { author, text } = this.state;
+    // if (!author || !text) return;
+    // fetch('/api/comments', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ author, text }),
+    // }).then(res => res.json()).then((res) => {
+    //   if (!res.success) this.setState({error: res.error.message || res.error });
+    //   else this.setState({ author: '', text: '', error: null });
+    //   console.log(this.state)
+    // });
   }
 
   // loadCommentsFromServer = () => {

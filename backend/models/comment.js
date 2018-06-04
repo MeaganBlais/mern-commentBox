@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const Schema = mongoose.Shcema;
+const Schema = mongoose.Schema;
 
 // create new instance of the mongoose.schema to take
 // an object that shows the shape of your database entries
