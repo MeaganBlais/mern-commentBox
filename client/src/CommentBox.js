@@ -7,7 +7,7 @@ import CommentForm from './CommentForm';
 class CommentBox extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       data: [],
       error: null,
       author: '',
@@ -23,7 +23,7 @@ class CommentBox extends Component {
     }
   }
 
-  componetWillUnMount() {
+  componentWillUnMount() {
     if (this.pollInterval) clearInterval(this.pollInterval);
     this.pollInterval = null;
   }
